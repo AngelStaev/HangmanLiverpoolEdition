@@ -36,7 +36,26 @@ public class HangmanGame {
     public boolean isWordFound() {
 
         return wordToFind.contentEquals(new String(wordFound));
-        
+
+    }
+
+    public void enter(String newCharEntered) {
+
+        if (!wordToFind.contains(newCharEntered)) {
+            if (wordToFind.contains(newCharEntered)) {
+                int index = wordToFind.indexOf(newCharEntered);
+
+                while (index >= 0) {
+                    wordFound[index] = newCharEntered.charAt(0);
+                    index = wordToFind.indexOf(newCharEntered, index + 1);
+                }
+            } else {
+                errors++;
+            }
+
+
+            letters.add(newCharEntered);
+        }
     }
 
     public static void main(String[] args) {
