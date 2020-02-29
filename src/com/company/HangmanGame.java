@@ -26,7 +26,7 @@ public class HangmanGame {
 
         errors = 0;
         letters.clear();
-        wordToFind = words[random.nextInt()];
+        wordToFind = words[random.nextInt(words.length)];
         wordFound = new char[wordToFind.length()];
 
         for (int i = 0; i < wordToFind.length(); i++) {
@@ -42,7 +42,7 @@ public class HangmanGame {
 
     public void enter(String newCharEntered) {
 
-        if (!wordToFind.contains(newCharEntered)) {
+        if (!letters.contains(newCharEntered)) {
             if (wordToFind.contains(newCharEntered)) {
                 int index = wordToFind.indexOf(newCharEntered);
 
