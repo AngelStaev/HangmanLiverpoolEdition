@@ -73,10 +73,41 @@ public class HangmanGame {
         return builder.toString();
     }
 
+    public void play() {
+        try (Scanner input = new Scanner(System.in)) {
+            while (errors < maxErrors) {
+                System.out.println("\nEnter a letter : ");
+
+                String str = input.next();
+
+                if (str.length() > 1) {
+                    str = str.substring(0, 1);
+                }
+
+                enter(str);
+
+                System.out.println("\n" + wordFoundContent());
+
+                if (isWordFound()) {
+                    System.out.println("\nYou win!");
+                    break;
+                } else {
+                    System.out.println("\n=> Nb tries remaining : " + (maxErrors - errors));
+                }
+            }
+
+            if (errors == maxErrors) {
+                System.out.println("\nYou lose!");
+                System.out.println("=> Word to find was : " + wordToFind);
+            }
+        }
+    }
 
 
     public static void main(String[] args) {
-
+        HangmanGame hangmanGame = new HangmanGame();
+        hangmanGame.newGame();
+        hangmanGame.play();
 
     }
 }
