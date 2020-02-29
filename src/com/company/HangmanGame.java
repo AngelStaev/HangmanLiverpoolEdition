@@ -2,6 +2,7 @@ package com.company;
 
 import java.util.ArrayList;
 import java.util.Random;
+import java.util.Scanner;
 
 public class HangmanGame {
 
@@ -57,6 +58,22 @@ public class HangmanGame {
             letters.add(newCharEntered);
         }
     }
+
+    public String wordFoundContent() {
+        StringBuilder builder = new StringBuilder();
+
+        for (int i = 0; i < wordFound.length; i++) {
+            builder.append(wordFound[i]);
+
+            if (i < wordFound.length - 1) {
+                builder.append(" ");
+            }
+        }
+
+        return builder.toString();
+    }
+
+
 
     public static void main(String[] args) {
 
