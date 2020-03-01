@@ -40,7 +40,7 @@ public class HangmanGame {
 
     }
 
-    public void enter(String newCharEntered) {
+    public void enterLetter(String newCharEntered) {
 
         if (!letters.contains(newCharEntered)) {
             if (wordToFind.contains(newCharEntered)) {
@@ -84,7 +84,7 @@ public class HangmanGame {
                     str = str.substring(0, 1);
                 }
 
-                enter(str);
+                enterLetter(str);
 
                 System.out.println("\n" + wordFoundContent());
 
